@@ -14,18 +14,62 @@
         </header>
         <section id="registers">
             <div class="column-left-registers">
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+                <div class="row">
+                    <label class="register-label" for="ax">AX
+                        <input type="text" id="ax" name="ax"/>
+                    </label>
+                    <button class="resetRegisters resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <label class="register-label" for="bx">BX
+                        <input type="text" id="bx" name="bx"/>
+                    </label>
+                    <button class="resetRegisters resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <label class="register-label" for="cx">CX
+                        <input type="text" id="cx" name="cx"/>
+                    </label>
+                    <button class="resetRegisters resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <label class="register-label" for="dx">DX
+                        <input type="text" id="dx" name="dx"/>
+                    </label>
+                    <button class="resetRegisters resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <button id="resetAllRegisters" class="resetBtn">RESET ALL</button>
+                </div>
             </div>
-            <div class="column-right-registers">
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+            <div class="column-right-adresses">
+                <div class="row">
+                    <label class="adress-label" for="ax">SI
+                        <input type="text" id="si" name="si"/>
+                    </label>
+                    <button class="resetAdresses resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <label class="adress-label" for="ax">DI
+                        <input type="text" id="di" name="di"/>
+                    </label>
+                    <button class="resetAdresses resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <label class="adress-label" for="ax">BP
+                        <input type="text" id="bp" name="bp"/>
+                    </label>
+                    <button class="resetAdresses resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <label class="adress-label" for="sp">SP
+                        <input type="text" id="sp" name="sp"/>
+                    </label>
+                    <button class="resetAdresses resetBtn">RESET</button>
+                </div>
+                <div class="row">
+                    <button id="resetAllAdresses" class="resetBtn">RESET ALL</button>
+                </div>
             </div>
         </section>
         <section id="instructions">
