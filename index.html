@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Procesor 8088</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -15,59 +18,51 @@
         <section id="registers">
             <div class="column-left-registers">
                 <div class="row">
-                    <label class="register-label" for="ax">AX
-                        <input type="text" id="ax" name="ax"/>
-                    </label>
+                    <label class="register-label" for="ax">AX</label>
+                    <input type="text" id="ax" name="ax"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
                 <div class="row">
-                    <label class="register-label" for="bx">BX
-                        <input type="text" id="bx" name="bx"/>
-                    </label>
+                    <label class="register-label" for="bx">BX</label>
+                    <input type="text" id="bx" name="bx"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
                 <div class="row">
-                    <label class="register-label" for="cx">CX
-                        <input type="text" id="cx" name="cx"/>
-                    </label>
+                    <label class="register-label" for="cx">CX</label>
+                    <input type="text" id="cx" name="cx"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
                 <div class="row">
-                    <label class="register-label" for="dx">DX
-                        <input type="text" id="dx" name="dx"/>
-                    </label>
+                    <label class="register-label" for="dx">DX</label>
+                    <input type="text" id="dx" name="dx"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
-                <div class="row">
+                <div class="row rowResetAll">
                     <button id="resetAllRegisters" class="resetBtn">RESET ALL</button>
                 </div>
             </div>
             <div class="column-right-adresses">
                 <div class="row">
-                    <label class="adress-label" for="ax">SI
-                        <input type="text" id="si" name="si"/>
-                    </label>
+                    <label class="adress-label" for="ax">SI</label>
+                    <input type="text" id="si" name="si"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
                 <div class="row">
-                    <label class="adress-label" for="ax">DI
-                        <input type="text" id="di" name="di"/>
-                    </label>
+                    <label class="adress-label" for="ax">DI</label>
+                    <input type="text" id="di" name="di"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
                 <div class="row">
-                    <label class="adress-label" for="ax">BP
-                        <input type="text" id="bp" name="bp"/>
-                    </label>
+                    <label class="adress-label" for="ax">BP</label>
+                    <input type="text" id="bp" name="bp"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
                 <div class="row">
-                    <label class="adress-label" for="sp">SP
-                        <input type="text" id="sp" name="sp"/>
-                    </label>
+                    <label class="adress-label" for="sp">SP</label>
+                    <input type="text" id="sp" name="sp"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
-                <div class="row">
+                <div class="row rowResetAll">
                     <button id="resetAllAdresses" class="resetBtn">RESET ALL</button>
                 </div>
             </div>
