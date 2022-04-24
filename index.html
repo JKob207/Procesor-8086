@@ -69,10 +69,60 @@
         </section>
         <section id="instructions">
             <div class="column-instructions">
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
-                <div class="row"></div>
+                <div class="row">
+                    <label class="mov-label">MOV</label>
+                    <select id="movRight" name="movRight">
+                        <option value="AX">AX</option>
+                        <option value="BX">BX</option>
+                        <option value="CX">CX</option>
+                        <option value="DX">DX</option>
+                    </select>
+                    <span class="rigth-arrow">&#10230;</span>
+                    <select id="movLeft" name="movLeft">
+                        <option value="AX">AX</option>
+                        <option value="BX">BX</option>
+                        <option value="CX">CX</option>
+                        <option value="DX">DX</option>
+                    </select>
+                    <button id="applyMov" class="apply">APPLY</button>
+                </div>
+                <div class="row">
+                    <label class="xchg-label">XCHG</label>
+                    <select id="xchgRight" name="xchgRight">
+                        <option value="AX">AX</option>
+                        <option value="BX">BX</option>
+                        <option value="CX">CX</option>
+                        <option value="DX">DX</option>
+                    </select>
+                    <span class="rigth-arrow">&#10231;</span>
+                    <select id="xchgLeft" name="xchgLeft">
+                        <option value="AX">AX</option>
+                        <option value="BX">BX</option>
+                        <option value="CX">CX</option>
+                        <option value="DX">DX</option>
+                    </select>
+                    <button id="applyXchg" class="apply">APPLY</button>
+                </div>
+                <div class="row">
+                    <label class="push-label">PUSH</label>
+                    <select id="pushRight" name="pushRight">
+                        <option value="AX">AX</option>
+                        <option value="BX">BX</option>
+                        <option value="CX">CX</option>
+                        <option value="DX">DX</option>
+                    </select>
+                    <button id="applyPush" class="apply">APPLY</button>
+                </div>
+                <div class="row">
+                    <label class="pop-label">POP</label>
+                    <select id="popRight" name="pushRight">
+                        <option value="AX">AX</option>
+                        <option value="BX">BX</option>
+                        <option value="CX">CX</option>
+                        <option value="DX">DX</option>
+                    </select>
+                    <button id="applyPop" class="apply">APPLY</button>
+                </div>
             </div>
         </section>
         <section id="options">

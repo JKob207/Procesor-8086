@@ -33,7 +33,7 @@ section#registers
     align-items: center;
 }
 
-div.column-left-registers .row, div.column-right-adresses .row
+.row
 {
     margin: 15px;
 }
@@ -59,7 +59,7 @@ input[type="text"]
     padding: 10px;
 }
 
-#registers label
+label
 {
     font-size: 24px;
     display: inline-block;
@@ -78,8 +78,16 @@ button
     box-shadow: -2px 2px 1px 0px rgb(66 68 90);
 }
 
-.resetBtn
+.resetBtn, .apply
 {
     padding: 8px 16px;
     margin-left: 5px;
+}
+
+select
+{
+    padding: 8px 25px;
+    margin: 8px 0;
+    font-size: 18px;
+    font-weight: 600;
 }
