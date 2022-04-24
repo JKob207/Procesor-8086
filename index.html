@@ -67,7 +67,7 @@
                 </div>
             </div>
         </section>
-        <section id="instructions">
+        <section id="options">
             <div class="column-instructions">
                 <div class="row">
                     <label class="mov-label">MOV</label>
@@ -124,15 +124,32 @@
                     <button id="applyPop" class="apply">APPLY</button>
                 </div>
             </div>
-        </section>
-        <section id="options">
-            <div class="options-title"></div>
-            <div class="row-options">
-                <div class="column-options"></div>
-                <div class="column-options"></div>
-                <div class="column-options"></div>
-                <div class="column-options"></div>
-                <div class="column-options"></div>
+            <div class="column-options">
+                <div class="row-options-title">
+                    <h2>Options</h2>
+                </div>
+                    <div class="row-options">
+                        <div class="column-options">
+                            <div class="registerOrMemoryOptions">
+                                <input type="radio" id="registerToMemory" name="registerOrMemory" value="RM">
+                                <label for="registerToMemory">Z rejestru do pamięci</label><br/>
+                                <input type="radio" id="memoryToRegister" name="registerOrMemory" value="MR">
+                                <label for="memoryToRegister">Z pamięci do rejestru</label><br/>
+                            </div>
+                            <div class="adressesOptions">
+                                <input type="radio" id="indexAdress" name="adressesType" value="indexAdress">
+                                <label for="indexAdress">Indeksowy</label><br/>
+                                <input type="radio" id="baseAdress" name="adressesType" value="baseAdress">
+                                <label for="baseAdress">Bazowy</label><br/>
+                                <input type="radio" id="indexBaseAdress" name="adressesType" value="indexBaseAdress">
+                                <label for="indexBaseAdress">Indeksowo-bazowy</label>
+                            </div>
+                        </div>
+                        <div class="column-options">
+                            
+                        </div>
+                        <div class="column-options"></div>
+                </div>
             </div>
         </section>
     </div>

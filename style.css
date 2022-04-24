@@ -19,11 +19,27 @@
     width: 80%;
 }
 
-header
+header, .row-options-title
 {
     text-align: center;
     padding: 30px;
 }
+
+.column-left-registers , .column-left-adresses
+{
+    width: 50%;
+}
+
+.column-instructions
+{
+    width: 40%;
+}
+
+.column-options
+{
+    width: 60%;
+}
+
 
 section#registers
 {
@@ -90,4 +106,64 @@ select
     margin: 8px 0;
     font-size: 18px;
     font-weight: 600;
+}
+
+#options
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.column-options div
+{
+    padding: 5px;
+}
+
+.row-options
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.adressesOptions
+{
+    margin-top: 20px;
+}
+
+input[type="radio"] 
+{
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: #000;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid #000;
+    border-radius: 50%;
+    transform: translateY(0.2em);
+    display: inline-grid;
+    place-content: center;
+}
+
+input[type="radio"]::before 
+{
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em #000;
+}
+
+input[type="radio"]:checked::before 
+{
+    transform: scale(1);
+}
+
+.form-control + .form-control 
+{
+    margin-top: 1em;
 }
