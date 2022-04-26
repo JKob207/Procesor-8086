@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procesor 8088</title>
+    <title>Procesor 8086</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,13 +73,13 @@
                     <label class="mov-label">MOV</label>
                     <select id="movRight" name="movRight">
                         <option value="AX">AX</option>
-                        <option value="BX">BX</option>
+                        <option value="BX" disabled>BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
                     </select>
                     <span class="rigth-arrow">&#10230;</span>
                     <select id="movLeft" name="movLeft">
-                        <option value="AX">AX</option>
+                        <option value="AX" disabled>AX</option>
                         <option value="BX">BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
@@ -90,13 +90,13 @@
                     <label class="xchg-label">XCHG</label>
                     <select id="xchgRight" name="xchgRight">
                         <option value="AX">AX</option>
-                        <option value="BX">BX</option>
+                        <option value="BX" disabled>BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
                     </select>
                     <span class="rigth-arrow">&#10231;</span>
                     <select id="xchgLeft" name="xchgLeft">
-                        <option value="AX">AX</option>
+                        <option value="AX" disabled>AX</option>
                         <option value="BX">BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
@@ -145,13 +145,12 @@
                                 <label for="indexBaseAdress">Indeksowo-bazowy</label>
                             </div>
                         </div>
-                        <div class="column-options">
-                            
-                        </div>
+                        <div class="column-options"></div>
                         <div class="column-options"></div>
                 </div>
             </div>
         </section>
     </div>
+    <script src="Main.js"></script>
 </body>
 </html>
