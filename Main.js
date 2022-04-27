@@ -1,5 +1,5 @@
 window.addEventListener('DOMContentLoaded', () => {
-    //Input
+    // Input
     const axInput = document.querySelector("input#ax");
     const bxInput = document.querySelector("input#bx");
     const cxInput = document.querySelector("input#cx");
@@ -12,12 +12,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const inputsTab = [axInput, bxInput, cxInput, dxInput, siInput, diInput, bpInput, spInput];
     
-    //Select
+    // Select
     const movRight = document.querySelector("#movRight");
     const movLeft = document.querySelector("#movLeft");
     const xchgRight = document.querySelector("#xchgRight");
     const xchgLeft = document.querySelector("#xchgLeft");
 
+    // ResetAll Buttons
+    const resetAllRegisters = document.querySelector("#resetAllRegisters");
+    const resetAllAdresses = document.querySelector("#resetAllAdresses");
+    
     // Check if not already selected (Select)
     let disabledMovLeft = "AX";
     let disabledMovRight = "BX";
@@ -56,8 +60,7 @@ window.addEventListener('DOMContentLoaded', () => {
         disabledXchgRight = e.target.value;
     })
 
-    //Validation of entered data
-    
+    // Validation of entered data
     const inputPattern = /^[A-Fa-f0-9]*$/;
     inputsTab.forEach(element => {
         element.addEventListener("input", (e) => {
@@ -68,6 +71,28 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
     });
+
+    // Reset buttons
+    const indexTab = ["ax","bx","cx","dx","si","di","bp","sp"];
+    
+    indexTab.forEach(el => {
+        let resetButton = document.querySelector(`#${el} + button`);
+        resetButton.addEventListener('click', () => {
+            document.querySelector(`input#${el}`).value = "";
+        })
+    })
+
+    resetAllRegisters.addEventListener('click', () => {
+        for (let i = 0; i < 4; i++) {
+            document.querySelector(`input#${indexTab[i]}`).value = "";
+        }
+    })
+
+    resetAllAdresses.addEventListener('click', () => {
+        for (let i = 4; i < 8; i++) {
+            document.querySelector(`input#${indexTab[i]}`).value = "";
+        }
+    })
  
 
 });
