@@ -19,22 +19,22 @@
             <div class="column-left-registers">
                 <div class="row">
                     <label class="register-label" for="ax">AX</label>
-                    <input type="text" id="ax" name="ax"/>
+                    <input type="text" id="ax" name="ax" maxlength="4"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
                 <div class="row">
                     <label class="register-label" for="bx">BX</label>
-                    <input type="text" id="bx" name="bx"/>
+                    <input type="text" id="bx" name="bx" maxlength="4"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
                 <div class="row">
                     <label class="register-label" for="cx">CX</label>
-                    <input type="text" id="cx" name="cx"/>
+                    <input type="text" id="cx" name="cx" maxlength="4"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
                 <div class="row">
                     <label class="register-label" for="dx">DX</label>
-                    <input type="text" id="dx" name="dx"/>
+                    <input type="text" id="dx" name="dx" maxlength="4"/>
                     <button class="resetRegisters resetBtn">RESET</button>
                 </div>
                 <div class="row rowResetAll">
@@ -44,22 +44,22 @@
             <div class="column-right-adresses">
                 <div class="row">
                     <label class="adress-label" for="ax">SI</label>
-                    <input type="text" id="si" name="si"/>
+                    <input type="text" id="si" name="si" maxlength="4"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
                 <div class="row">
                     <label class="adress-label" for="ax">DI</label>
-                    <input type="text" id="di" name="di"/>
+                    <input type="text" id="di" name="di" maxlength="4"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
                 <div class="row">
                     <label class="adress-label" for="ax">BP</label>
-                    <input type="text" id="bp" name="bp"/>
+                    <input type="text" id="bp" name="bp" maxlength="4"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
                 <div class="row">
                     <label class="adress-label" for="sp">SP</label>
-                    <input type="text" id="sp" name="sp"/>
+                    <input type="text" id="sp" name="sp" maxlength="4"/>
                     <button class="resetAdresses resetBtn">RESET</button>
                 </div>
                 <div class="row rowResetAll">
@@ -131,13 +131,13 @@
                     <div class="row-options">
                         <div class="column-options">
                             <div class="registerOrMemoryOptions">
-                                <input type="radio" id="registerToMemory" name="registerOrMemory" value="RM">
+                                <input type="radio" id="registerToMemory" name="registerOrMemory" value="RM" checked>
                                 <label for="registerToMemory">Z rejestru do pamięci</label><br/>
                                 <input type="radio" id="memoryToRegister" name="registerOrMemory" value="MR">
                                 <label for="memoryToRegister">Z pamięci do rejestru</label><br/>
                             </div>
                             <div class="adressesOptions">
-                                <input type="radio" id="indexAdress" name="adressesType" value="indexAdress">
+                                <input type="radio" id="indexAdress" name="adressesType" value="indexAdress" checked>
                                 <label for="indexAdress">Indeksowy</label><br/>
                                 <input type="radio" id="baseAdress" name="adressesType" value="baseAdress">
                                 <label for="baseAdress">Bazowy</label><br/>

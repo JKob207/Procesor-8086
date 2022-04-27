@@ -1,4 +1,17 @@
 window.addEventListener('DOMContentLoaded', () => {
+    //Input
+    const axInput = document.querySelector("input#ax");
+    const bxInput = document.querySelector("input#bx");
+    const cxInput = document.querySelector("input#cx");
+    const dxInput = document.querySelector("input#dx");
+
+    const siInput = document.querySelector("input#si");
+    const diInput = document.querySelector("input#di");
+    const bpInput = document.querySelector("input#bp");
+    const spInput = document.querySelector("input#sp");
+
+    const inputsTab = [axInput, bxInput, cxInput, dxInput, siInput, diInput, bpInput, spInput];
+    
     //Select
     const movRight = document.querySelector("#movRight");
     const movLeft = document.querySelector("#movLeft");
@@ -42,6 +55,19 @@ window.addEventListener('DOMContentLoaded', () => {
         newDisabledXchg.setAttribute("disabled", null);
         disabledXchgRight = e.target.value;
     })
+
+    //Validation of entered data
+    
+    const inputPattern = /^[A-Fa-f0-9]*$/;
+    inputsTab.forEach(element => {
+        element.addEventListener("input", (e) => {
+            let validateInput = inputPattern.test(element.value);
+            if(validateInput == false || element.value.length == 5)
+            {
+                element.value = element.value.substr(0,element.value.length-1);
+            }
+        })
+    });
  
 
 });
