@@ -125,6 +125,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Register to register select option
     registerToRegister.addEventListener('change', () => {
+        document.querySelector("#registerAdress").disabled = false;
+        document.querySelector("#registerAdress").checked = true;
+        document.querySelector("#indexAdress").disabled = true;
+        document.querySelector("#baseAdress").disabled = true;
+        document.querySelector("#indexBaseAdress").disabled = true;
+
         let tmpRigth = ["movRight", "xchgRight"];
         let tmpLeft = ["movLeft", "xchgLeft"];
         for(let i = 0;i<tmpRigth.length;i++)
@@ -148,6 +154,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Register to memory select option
     registerToMemory.addEventListener('change', () => {
+        document.querySelector("#indexAdress").disabled = false;
+        document.querySelector("#baseAdress").disabled = false;
+        document.querySelector("#indexBaseAdress").disabled = false;
+        document.querySelector("#indexAdress").checked = true;
+        document.querySelector("#registerAdress").disabled = true;
+
+
         let tmpRigth = ["movRight", "xchgRight"];
         let tmpLeft = ["movLeft", "xchgLeft"];
         for(let i = 0;i<tmpLeft.length;i++)
@@ -169,6 +182,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
     //Memory to register select option
     memoryToRegister.addEventListener('change', () => {
+        document.querySelector("#indexAdress").disabled = false;
+        document.querySelector("#baseAdress").disabled = false;
+        document.querySelector("#indexBaseAdress").disabled = false;
+        document.querySelector("#indexAdress").checked = true;
+        document.querySelector("#registerAdress").disabled = true;
+
         let tmpRigth = ["movRight", "xchgRight"];
         let tmpLeft = ["movLeft", "xchgLeft"];
         for(let i = 0;i<tmpRigth.length;i++)

@@ -162,3 +162,13 @@ input[type="radio"]:checked::before
 {
     margin-top: 1em;
 }
+
+option:disabled
+{
+    background-color: #efefef;
+}
+
+input:disabled
+{
+    background-color: #efefef;
+}
