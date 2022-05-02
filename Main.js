@@ -18,9 +18,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const xchgRight = document.querySelector("#xchgRight");
     const xchgLeft = document.querySelector("#xchgLeft");
 
-    // ResetAll Buttons
+    // ResetAll buttons
     const resetAllRegisters = document.querySelector("#resetAllRegisters");
     const resetAllAdresses = document.querySelector("#resetAllAdresses");
+
+    //Apply buttons
+    const applyMov = document.querySelector("#applyMov");
+    const applyXchg = document.querySelector("#applyXchg");
     
     // Check if not already selected (Select)
     let disabledMovLeft = "AX";
@@ -93,6 +97,22 @@ window.addEventListener('DOMContentLoaded', () => {
             document.querySelector(`input#${indexTab[i]}`).value = "";
         }
     })
- 
+
+    //Mov apply
+    applyMov.addEventListener('click', (e) => {
+        const movRightValue = movRight.value.toLowerCase();
+        const movLeftValue = movLeft.value.toLowerCase();
+
+        document.querySelector(`input#${movLeftValue}`).value = document.querySelector(`input#${movRightValue}`).value; 
+    })
+
+    applyXchg.addEventListener('click', (e) => {
+        const movRightValue = movRight.value.toLowerCase();
+        const movLeftValue = movLeft.value.toLowerCase();
+
+        let tmp = document.querySelector(`input#${movRightValue}`).value;
+        document.querySelector(`input#${movRightValue}`).value = document.querySelector(`input#${movLeftValue}`).value;
+        document.querySelector(`input#${movLeftValue}`).value = tmp;
+    })
 
 });

@@ -21,7 +21,7 @@
 header, .row-options-title
 {
     text-align: center;
-    padding: 30px;
+    padding: 2vh;
 }
 
 .column-instructions
@@ -67,7 +67,7 @@ input[type="text"]
     margin: 8px 0;
     font-size: 18px;
     font-weight: 600;
-    padding: 10px;
+    padding: 8px;
 }
 
 label
