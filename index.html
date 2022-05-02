@@ -76,6 +76,11 @@
                         <option value="BX" disabled>BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
+                        <option value="SI" disabled>SI</option>
+                        <option value="DI" disabled>DI</option>
+                        <option value="BP" disabled>BP</option>
+                        <option value="SI+BP" disabled>SI+BP</option>
+                        <option value="DI+BP" disabled>DI+BP</option>
                     </select>
                     <span class="rigth-arrow">&#10230;</span>
                     <select id="movLeft" name="movLeft">
@@ -83,6 +88,11 @@
                         <option value="BX">BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
+                        <option value="SI" disabled>SI</option>
+                        <option value="DI" disabled>DI</option>
+                        <option value="BP" disabled>BP</option>
+                        <option value="SI+BP" disabled>SI+BP</option>
+                        <option value="DI+BP" disabled>DI+BP</option>
                     </select>
                     <button id="applyMov" class="apply">APPLY</button>
                 </div>
@@ -93,6 +103,11 @@
                         <option value="BX" disabled>BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
+                        <option value="SI" disabled>SI</option>
+                        <option value="DI" disabled>DI</option>
+                        <option value="BP" disabled>BP</option>
+                        <option value="SI+BP" disabled>SI+BP</option>
+                        <option value="DI+BP" disabled>DI+BP</option>
                     </select>
                     <span class="rigth-arrow">&#10231;</span>
                     <select id="xchgLeft" name="xchgLeft">
@@ -100,6 +115,11 @@
                         <option value="BX">BX</option>
                         <option value="CX">CX</option>
                         <option value="DX">DX</option>
+                        <option value="SI" disabled>SI</option>
+                        <option value="DI" disabled>DI</option>
+                        <option value="BP" disabled>BP</option>
+                        <option value="SI+BP" disabled>SI+BP</option>
+                        <option value="DI+BP" disabled>DI+BP</option>
                     </select>
                     <button id="applyXchg" class="apply">APPLY</button>
                 </div>
@@ -131,13 +151,17 @@
                     <div class="row-options">
                         <div class="column-options">
                             <div class="registerOrMemoryOptions">
-                                <input type="radio" id="registerToMemory" name="registerOrMemory" value="RM" checked>
+                                <input type="radio" id="registerToRegister" name="registerOrMemory" value="RR" checked>
+                                <label for="registerToRegister">Z rejestru do rejestru</label><br/>
+                                <input type="radio" id="registerToMemory" name="registerOrMemory" value="RM">
                                 <label for="registerToMemory">Z rejestru do pamięci</label><br/>
                                 <input type="radio" id="memoryToRegister" name="registerOrMemory" value="MR">
                                 <label for="memoryToRegister">Z pamięci do rejestru</label><br/>
                             </div>
                             <div class="adressesOptions">
-                                <input type="radio" id="indexAdress" name="adressesType" value="indexAdress" checked>
+                                <input type="radio" id="registerAdress" name="adressesType" value="registerAdress" checked>
+                                <label for="registerAdress">Rejestrowy</label><br/>
+                                <input type="radio" id="indexAdress" name="adressesType" value="indexAdress">
                                 <label for="indexAdress">Indeksowy</label><br/>
                                 <input type="radio" id="baseAdress" name="adressesType" value="baseAdress">
                                 <label for="baseAdress">Bazowy</label><br/>

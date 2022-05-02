@@ -10,7 +10,12 @@ window.addEventListener('DOMContentLoaded', () => {
     const bpInput = document.querySelector("input#bp");
     const spInput = document.querySelector("input#sp");
 
+    const registerToRegister = document.querySelector("#registerToRegister");
+    const registerToMemory = document.querySelector("#registerToMemory");
+
     const inputsTab = [axInput, bxInput, cxInput, dxInput, siInput, diInput, bpInput, spInput];
+    const adressesId = ["si", "di", "bp", "si+bp", "di+bp"];
+    const registerId = ["ax", "bx", "cx", "dx"];
     
     // Select
     const movRight = document.querySelector("#movRight");
@@ -21,12 +26,13 @@ window.addEventListener('DOMContentLoaded', () => {
     // ResetAll buttons
     const resetAllRegisters = document.querySelector("#resetAllRegisters");
     const resetAllAdresses = document.querySelector("#resetAllAdresses");
+    const memoryToRegister = document.querySelector("#memoryToRegister");
 
     //Apply buttons
     const applyMov = document.querySelector("#applyMov");
     const applyXchg = document.querySelector("#applyXchg");
     
-    // Check if not already selected (Select)
+    // Check if not already selected (Select registers)
     let disabledMovLeft = "AX";
     let disabledMovRight = "BX";
     let disabledXchgLeft = "AX";
@@ -98,21 +104,87 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    //Mov apply
-    applyMov.addEventListener('click', (e) => {
+    // Mov apply
+    applyMov.addEventListener('click', () => {
         const movRightValue = movRight.value.toLowerCase();
         const movLeftValue = movLeft.value.toLowerCase();
 
         document.querySelector(`input#${movLeftValue}`).value = document.querySelector(`input#${movRightValue}`).value; 
     })
 
-    applyXchg.addEventListener('click', (e) => {
-        const movRightValue = movRight.value.toLowerCase();
-        const movLeftValue = movLeft.value.toLowerCase();
 
-        let tmp = document.querySelector(`input#${movRightValue}`).value;
-        document.querySelector(`input#${movRightValue}`).value = document.querySelector(`input#${movLeftValue}`).value;
-        document.querySelector(`input#${movLeftValue}`).value = tmp;
+    // XCHG apply
+    applyXchg.addEventListener('click', () => {
+        const xchgRightValue = xchgRight.value.toLowerCase();
+        const xchgLeftValue = xchgLeft.value.toLowerCase();
+
+        let tmp = document.querySelector(`input#${xchgRightValue}`).value;
+        document.querySelector(`input#${xchgRightValue}`).value = document.querySelector(`input#${xchgLeftValue}`).value;
+        document.querySelector(`input#${xchgLeftValue}`).value = tmp;
     })
 
+    // Register to register select option
+    registerToRegister.addEventListener('change', () => {
+        let tmpRigth = ["movRight", "xchgRight"];
+        let tmpLeft = ["movLeft", "xchgLeft"];
+        for(let i = 0;i<tmpRigth.length;i++)
+        {
+            adressesId.forEach(id => {
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+            })
+
+            registerId.forEach(id => {
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+            })
+
+            document.querySelector(`#${tmpRigth[i]}`).value = "AX";
+            document.querySelector(`#${tmpLeft[i]} option[value="AX"]`).setAttribute("disabled", null);
+            document.querySelector(`#${tmpLeft[i]}`).value = "BX";
+            document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).setAttribute("disabled", null);
+        }
+    })
+
+    // Register to memory select option
+    registerToMemory.addEventListener('change', () => {
+        let tmpRigth = ["movRight", "xchgRight"];
+        let tmpLeft = ["movLeft", "xchgLeft"];
+        for(let i = 0;i<tmpLeft.length;i++)
+        {
+            adressesId.forEach(id => {
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+            })
+
+            registerId.forEach(id => {
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+            })
+
+            document.querySelector(`#${tmpLeft[i]}`).value = "SI";
+            document.querySelector(`#${tmpRigth[i]}`).value = "AX";
+        }
+    })
+
+    //Memory to register select option
+    memoryToRegister.addEventListener('change', () => {
+        let tmpRigth = ["movRight", "xchgRight"];
+        let tmpLeft = ["movLeft", "xchgLeft"];
+        for(let i = 0;i<tmpRigth.length;i++)
+        {
+            adressesId.forEach(id => {
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+            })
+
+            registerId.forEach(id => {
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+            })
+
+            document.querySelector(`#${tmpRigth[i]}`).value = "SI";
+            document.querySelector(`#${tmpLeft[i]}`).value = "AX";
+        }
+    })
 });
