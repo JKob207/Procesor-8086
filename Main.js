@@ -1,7 +1,7 @@
 window.addEventListener('DOMContentLoaded', () => {
     // Addressing mode
     let adressMode = "RR";
-
+    
     // Input
     const axInput = document.querySelector("input#ax");
     const bxInput = document.querySelector("input#bx");
@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const registerId = ["ax", "bx", "cx", "dx"];
     const tmpRigth = ["movRight", "xchgRight"];
     const tmpLeft = ["movLeft", "xchgLeft"];
-    
+
     // Select
     const movRight = document.querySelector("#movRight");
     const movLeft = document.querySelector("#movLeft");
@@ -94,7 +94,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // Reset buttons
-    
     indexTab.forEach(el => {
         let resetButton = document.querySelector(`#${el} + button`);
         resetButton.addEventListener('click', () => {
@@ -146,19 +145,19 @@ window.addEventListener('DOMContentLoaded', () => {
         for(let i = 0;i<tmpRigth.length;i++)
         {
             adressesId.forEach(id => {
-                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
-                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).disabled = true;
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).disabled = true;
             })
 
             registerId.forEach(id => {
-                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
-                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).disabled = false;
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).disabled = false;
             })
 
             document.querySelector(`#${tmpRigth[i]}`).value = "AX";
-            document.querySelector(`#${tmpLeft[i]} option[value="AX"]`).setAttribute("disabled", null);
+            document.querySelector(`#${tmpLeft[i]} option[value="AX"]`).disabled = true;
             document.querySelector(`#${tmpLeft[i]}`).value = "BX";
-            document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).setAttribute("disabled", null);
+            document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
         }
     })
 
@@ -175,13 +174,13 @@ window.addEventListener('DOMContentLoaded', () => {
         for(let i = 0;i<tmpLeft.length;i++)
         {
             adressesId.forEach(id => {
-                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
-                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).disabled = false;
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).disabled = true;
             })
 
             registerId.forEach(id => {
-                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
-                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).disabled = true;
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).disabled = false;
             })
 
             document.querySelector(`#${tmpLeft[i]}`).value = "SI";
@@ -204,13 +203,13 @@ window.addEventListener('DOMContentLoaded', () => {
         for(let i = 0;i<tmpRigth.length;i++)
         {
             adressesId.forEach(id => {
-                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
-                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).disabled = false;
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).disabled = true;
             })
 
             registerId.forEach(id => {
-                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).setAttribute("disabled", null);
-                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).removeAttribute("disabled");
+                document.querySelector(`#${tmpRigth[i]} option[value="${id.toUpperCase()}"]`).disabled = true;
+                document.querySelector(`#${tmpLeft[i]} option[value="${id.toUpperCase()}"]`).disabled = false;
             })
 
             document.querySelector(`#${tmpRigth[i]}`).value = "SI";
@@ -237,9 +236,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 })
     
                 document.querySelector(`#${tmpRigth[i]}`).value = "AX";
-                document.querySelector(`#${tmpLeft[i]} option[value="AX"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpLeft[i]} option[value="AX"]`).disabled = true;
                 document.querySelector(`#${tmpLeft[i]}`).value = "BX";
-                document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).setAttribute("disabled", null);
+                document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
             }
         }
     })
@@ -347,5 +346,5 @@ window.addEventListener('DOMContentLoaded', () => {
                 document.querySelector(`#${tmpRigth[i]}`).value = "SI+BP";
             }
         }
-    })
+    })  
 });
