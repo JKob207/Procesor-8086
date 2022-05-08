@@ -82,16 +82,17 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+        }
 
-            for(let i=0;i<tmpLeft.length;i++)
+        for(let i=0;i<tmpLeft.length;i++)
+        {
+            if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
             {
-                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
-                {
-                    document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = true;
-                }
+                document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = true;
             }
         }
         
+        // Validate which option can be choose when indexAdress is checked
         if(indexAdress.checked == true)
         {
             if(adressMode == "RM")
@@ -123,6 +124,7 @@ window.addEventListener('DOMContentLoaded', () => {
         newDisabledMov.setAttribute("disabled", null);
         disabledMovRight = e.target.value;
         
+        // Validate which option can be choose when indexBaseAdress is checked
         if(indexBaseAdress.checked == true)
         {
             for(let i=0;i<tmpRigth.length;i++)
@@ -149,16 +151,17 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+        }
 
-            for(let i=0;i<tmpRigth.length;i++)
+        for(let i=0;i<tmpRigth.length;i++)
+        {
+            if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
             {
-                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
-                {
-                    document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
-                }
+                document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
             }
         }
 
+        // Validate which option can be choose when indexAdress is checked
         if(indexAdress.checked == true)
         {
             if(adressMode == "RM")
@@ -190,6 +193,7 @@ window.addEventListener('DOMContentLoaded', () => {
         newDisabledXchg.setAttribute("disabled", null);
         disabledXchgLeft = e.target.value;
 
+        // Validate which option can be choose when indexBaseAdress is checked
         if(indexBaseAdress.checked == true)
         {
             for(let i=0;i<tmpLeft.length;i++)
@@ -216,16 +220,17 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+        }
 
-            for(let i=0;i<tmpLeft.length;i++)
+        for(let i=0;i<tmpLeft.length;i++)
+        {
+            if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
             {
-                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
-                {
-                    document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = true;
-                }
+                document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = true;
             }
         }
         
+        // Validate which option can be choose when indexAdress is checked
         if(indexAdress.checked == true)
         {
             if(adressMode == "RM")
@@ -248,7 +253,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-        
+
     })
 
     xchgLeft.addEventListener('change', (e) => {
@@ -258,6 +263,7 @@ window.addEventListener('DOMContentLoaded', () => {
         newDisabledXchg.setAttribute("disabled", null);
         disabledXchgRight = e.target.value;
 
+        // Validate which option can be choose when indexBaseAdress is checked
         if(indexBaseAdress.checked == true)
         {
             for(let i=0;i<tmpRigth.length;i++)
@@ -284,16 +290,17 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             }
+        }
 
-            for(let i=0;i<tmpRigth.length;i++)
+        for(let i=0;i<tmpRigth.length;i++)
+        {
+            if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
             {
-                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
-                {
-                    document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
-                }
+                document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
             }
         }
 
+        // Validate which option can be choose when indexAdress is checked
         if(indexAdress.checked == true)
         {
             if(adressMode == "RM")
