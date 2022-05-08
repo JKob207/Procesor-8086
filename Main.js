@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const inputsTab = [axInput, bxInput, cxInput, dxInput, siInput, diInput, bpInput, spInput];
     const indexTab = ["ax","bx","cx","dx","si","di","bp","sp"];
-    const adressesId = ["si", "di", "bp", "si+bp", "di+bp"];
+    const adressesId = ["si", "di", "bp", "si+bp", "si+bx", "di+bp", "di+bx"];
     const registerId = ["ax", "bx", "cx", "dx"];
     const tmpRigth = ["movRight", "xchgRight"];
     const tmpLeft = ["movLeft", "xchgLeft"];
@@ -55,6 +55,65 @@ window.addEventListener('DOMContentLoaded', () => {
         const newDisabledMov = document.querySelector("#movLeft option[value='"+e.target.value+"']");
         newDisabledMov.setAttribute("disabled", null);
         disabledMovLeft = e.target.value;
+
+        if(indexBaseAdress.checked == true)
+        {
+            for(let i=0;i<tmpLeft.length;i++)
+            {
+                document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = false;
+            }
+
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+
+            for(let i=0;i<tmpLeft.length;i++)
+            {
+                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
+                {
+                    document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = true;
+                }
+            }
+        }
+        
+        if(indexAdress.checked == true)
+        {
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+        }
     })
 
     movLeft.addEventListener('change', (e) => {
@@ -63,6 +122,65 @@ window.addEventListener('DOMContentLoaded', () => {
         const newDisabledMov = document.querySelector("#movRight option[value='"+e.target.value+"']");
         newDisabledMov.setAttribute("disabled", null);
         disabledMovRight = e.target.value;
+        
+        if(indexBaseAdress.checked == true)
+        {
+            for(let i=0;i<tmpRigth.length;i++)
+            {
+                document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = false;
+            }
+
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+
+            for(let i=0;i<tmpRigth.length;i++)
+            {
+                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
+                {
+                    document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
+                }
+            }
+        }
+
+        if(indexAdress.checked == true)
+        {
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+        }
     })
 
     xchgRight.addEventListener('change', (e) => {
@@ -71,14 +189,134 @@ window.addEventListener('DOMContentLoaded', () => {
         const newDisabledXchg = document.querySelector("#xchgLeft option[value='"+e.target.value+"']");
         newDisabledXchg.setAttribute("disabled", null);
         disabledXchgLeft = e.target.value;
+
+        if(indexBaseAdress.checked == true)
+        {
+            for(let i=0;i<tmpLeft.length;i++)
+            {
+                document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = false;
+            }
+
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+
+            for(let i=0;i<tmpLeft.length;i++)
+            {
+                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
+                {
+                    document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = true;
+                }
+            }
+        }
+        
+        if(indexAdress.checked == true)
+        {
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+        }
+        
     })
 
     xchgLeft.addEventListener('change', (e) => {
         const oldDisabledXchg = document.querySelector("#xchgRight option[value='"+disabledXchgRight+"']");
-        oldDisabledMov.removeAttribute("disabled");
+        oldDisabledXchg.removeAttribute("disabled");
         const newDisabledXchg = document.querySelector("#xchgRight option[value='"+e.target.value+"']");
         newDisabledXchg.setAttribute("disabled", null);
         disabledXchgRight = e.target.value;
+
+        if(indexBaseAdress.checked == true)
+        {
+            for(let i=0;i<tmpRigth.length;i++)
+            {
+                document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = false;
+            }
+
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=3;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+
+            for(let i=0;i<tmpRigth.length;i++)
+            {
+                if(e.target.value == "SI+BX" || e.target.value == "DI+BX")
+                {
+                    document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = true;
+                }
+            }
+        }
+
+        if(indexAdress.checked == true)
+        {
+            if(adressMode == "RM")
+            {
+                for(let i = 0;i<tmpLeft.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }else if(adressMode == "MR")
+            {
+                for(let i = 0;i<tmpRigth.length;i++)
+                {
+                    for(let j=0;j<adressesId.length;j++)
+                    {
+                        document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
+                    }
+                }
+            }
+        }
+
     })
 
     // Validation of entered data
@@ -325,6 +563,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 for(let j=3;j<adressesId.length;j++)
                 {
                     document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = false;
+                }
+
+                for(let j=3;j<adressesId.length;j++)
+                {
+                    document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
                 }
 
                 document.querySelector(`#${tmpLeft[i]}`).value = "SI+BP";
