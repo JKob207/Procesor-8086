@@ -525,6 +525,11 @@ window.addEventListener('DOMContentLoaded', () => {
         {
             for(let i = 0;i<tmpLeft.length;i++)
             {
+                for(let j=0;j<registerId.length;j++)
+                {
+                    document.querySelector(`#${tmpLeft[i]} option[value="${registerId[j].toUpperCase()}"]`).disabled = true;
+                }
+
                 for(let j=0;j<adressesId.length;j++)
                 {
                     document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = false;
@@ -541,6 +546,11 @@ window.addEventListener('DOMContentLoaded', () => {
         {
             for(let i = 0;i<tmpRigth.length;i++)
             {
+                for(let j=0;j<registerId.length;j++)
+                {
+                    document.querySelector(`#${tmpRigth[i]} option[value="${registerId[j].toUpperCase()}"]`).disabled = true;
+                }
+
                 for(let j=0;j<adressesId.length;j++)
                 {
                     document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = false;
@@ -568,20 +578,31 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
 
                 document.querySelector(`#${tmpLeft[i]} option[value="BP"]`).disabled = false;
-
+                if(document.querySelector(`#${tmpRigth[i]}`).value != "BX")
+                {
+                    document.querySelector(`#${tmpLeft[i]} option[value="BX"]`).disabled = false;
+                }
                 document.querySelector(`#${tmpLeft[i]}`).value = "BP";
             }
         }else if(adressMode == "MR")
         {
             for(let i = 0;i<tmpRigth.length;i++)
             {
+                for(let j=0;j<registerId.length;j++)
+                {
+                    document.querySelector(`#${tmpRigth[i]} option[value="${registerId[j].toUpperCase()}"]`).disabled = true;
+                }
+
                 for(let j=0;j<adressesId.length;j++)
                 {
                     document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
                 }
 
                 document.querySelector(`#${tmpRigth[i]} option[value="BP"]`).disabled = false;
-
+                if(document.querySelector(`#${tmpLeft[i]}`).value != "BX")
+                {
+                    document.querySelector(`#${tmpRigth[i]} option[value="BX"]`).disabled = false;
+                }
                 document.querySelector(`#${tmpRigth[i]}`).value = "BP";
             }
         }
@@ -593,6 +614,11 @@ window.addEventListener('DOMContentLoaded', () => {
         {
             for(let i = 0;i<tmpLeft.length;i++)
             {
+                for(let j=0;j<registerId.length;j++)
+                {
+                    document.querySelector(`#${tmpLeft[i]} option[value="${registerId[j].toUpperCase()}"]`).disabled = true;
+                }
+
                 for(let j=0;j<adressesId.length;j++)
                 {
                     document.querySelector(`#${tmpLeft[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
@@ -614,6 +640,11 @@ window.addEventListener('DOMContentLoaded', () => {
         {
             for(let i = 0;i<tmpRigth.length;i++)
             {
+                for(let j=0;j<registerId.length;j++)
+                {
+                    document.querySelector(`#${tmpRigth[i]} option[value="${registerId[j].toUpperCase()}"]`).disabled = true;
+                }
+
                 for(let j=0;j<adressesId.length;j++)
                 {
                     document.querySelector(`#${tmpRigth[i]} option[value="${adressesId[j].toUpperCase()}"]`).disabled = true;
