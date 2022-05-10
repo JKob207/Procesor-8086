@@ -8,6 +8,10 @@ function saveToMemory(type, adress, number)
 
 function getFromMemory(type, adress)
 {
+    if(localStorage.getItem(`${type}:${adress}`) == null)
+    {
+        return "";
+    }
     return localStorage.getItem(`${type}:${adress}`);
 }
 

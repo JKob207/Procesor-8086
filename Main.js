@@ -375,7 +375,28 @@ window.addEventListener('DOMContentLoaded', () => {
         {
             const number = document.querySelector(`input#${movRightValue}`).value.toUpperCase();
             const type = movLeftValue.toUpperCase();
-            const adress = document.querySelector(`input#${movLeftValue}`).value.toUpperCase()+"+"+disp;
+            let adress = "";
+            if(movLeftValue == "si+bp" || movLeftValue == "si+bx" || movLeftValue == "di+bp" || movLeftValue == "di+bx")
+            {
+                adressRegister = document.querySelector(`input#${movLeftValue.split("+")[0]}`).value.toUpperCase();
+                adressBase = document.querySelector(`input#${movLeftValue.split("+")[1]}`).value.toUpperCase();
+                if(disp == "")
+                {
+                    adress = `${adressRegister}+${adressBase}`;
+                }else
+                {
+                    adress = `${adressRegister}+${adressBase}+${disp}`;
+                }
+            }else
+            {
+                if(disp == "")
+                {
+                    adress = document.querySelector(`input#${movLeftValue}`).value.toUpperCase();
+                }else
+                {
+                    adress = document.querySelector(`input#${movLeftValue}`).value.toUpperCase()+"+"+disp;
+                }
+            }
             saveToMemory(type,adress,number);
             document.querySelector(`input#${movRightValue}`).value = "";
             document.querySelector(`input#${movLeftValue}`).value = "";
@@ -383,7 +404,27 @@ window.addEventListener('DOMContentLoaded', () => {
         }else if(adressMode == "MR")
         {
             const type = movRightValue.toUpperCase();
-            const adress = document.querySelector(`input#${movRightValue}`).value.toUpperCase()+"+"+disp;
+            if(movRightValue == "si+bp" || movRightValue == "si+bx" || movRightValue == "di+bp" || movRightValue == "di+bx")
+            {
+                adressRegister = document.querySelector(`input#${movRightValue.split("+")[0]}`).value.toUpperCase();
+                adressBase = document.querySelector(`input#${movRightValue.split("+")[1]}`).value.toUpperCase();
+                if(disp == "")
+                {
+                    adress = `${adressRegister}+${adressBase}`;
+                }else
+                {
+                    adress = `${adressRegister}+${adressBase}+${disp}`;
+                }
+            }else
+            {
+                if(disp == "")
+                {
+                    adress = document.querySelector(`input#${movRightValue}`).value.toUpperCase();
+                }else
+                {
+                    adress = document.querySelector(`input#${movRightValue}`).value.toUpperCase()+"+"+disp;
+                }
+            }
             document.querySelector(`input#${movLeftValue}`).value = getFromMemory(type,adress);
         }
     })
@@ -394,17 +435,72 @@ window.addEventListener('DOMContentLoaded', () => {
         const xchgRightValue = xchgRight.value.toLowerCase();
         const xchgLeftValue = xchgLeft.value.toLowerCase();
 
+        let disp = "";
+        if(document.querySelector("input#disp").value != "")
+        {
+            disp = document.querySelector("input#disp").value;
+        }
+
         if(adressMode == "RR")
         {
             let tmp = document.querySelector(`input#${xchgRightValue}`).value;
             document.querySelector(`input#${xchgRightValue}`).value = document.querySelector(`input#${xchgLeftValue}`).value;
             document.querySelector(`input#${xchgLeftValue}`).value = tmp;
-        }else if(adressMode == "RM" || adressMode == "MR")
+        }else if(adressMode == "RM")
         {
             const number = document.querySelector(`input#${xchgRightValue}`).value.toUpperCase();
             const type = xchgLeftValue.toUpperCase();
-            const adress = document.querySelector(`input#${xchgLeftValue}`).value.toUpperCase();
-            document.querySelector(`input#${xchgRightValue}`).value = xchgMemoryRegister(type,adress, number);
+            let adress = "";
+            if(xchgLeftValue == "si+bp" || xchgLeftValue == "si+bx" || xchgLeftValue == "di+bp" || xchgLeftValue == "di+bx")
+            {
+                adressRegister = document.querySelector(`input#${xchgLeftValue.split("+")[0]}`).value.toUpperCase();
+                adressBase = document.querySelector(`input#${xchgLeftValue.split("+")[1]}`).value.toUpperCase();
+                if(disp == "")
+                {
+                    adress = `${adressRegister}+${adressBase}`;
+                }else
+                {
+                    adress = `${adressRegister}+${adressBase}+${disp}`;
+                }
+            }else
+            {
+                if(disp == "")
+                {
+                    adress = document.querySelector(`input#${xchgLeftValue}`).value.toUpperCase();
+                }else
+                {
+                    adress = document.querySelector(`input#${xchgLeftValue}`).value.toUpperCase()+"+"+disp;
+                }
+            }
+            console.log("Type: "+type+" adress: "+adress);
+            document.querySelector(`input#${xchgRightValue}`).value = xchgMemoryRegister(type,adress,number);
+        }else if(adressMode == "MR")
+        {
+            const number = document.querySelector(`input#${xchgLeftValue}`).value.toUpperCase();
+            const type = xchgRightValue.toUpperCase();
+            let adress = "";
+            if(xchgRightValue == "si+bp" || xchgRightValue == "si+bx" || xchgRightValue == "di+bp" || xchgRightValue == "di+bx")
+            {
+                adressRegister = document.querySelector(`input#${xchgRightValue.split("+")[0]}`).value.toUpperCase();
+                adressBase = document.querySelector(`input#${xchgRightValue.split("+")[1]}`).value.toUpperCase();
+                if(disp == "")
+                {
+                    adress = `${adressRegister}+${adressBase}`;
+                }else
+                {
+                    adress = `${adressRegister}+${adressBase}+${disp}`;
+                }
+            }else
+            {
+                if(disp == "")
+                {
+                    adress = document.querySelector(`input#${xchgRightValue}`).value.toUpperCase();
+                }else
+                {
+                    adress = document.querySelector(`input#${xchgRightValue}`).value.toUpperCase()+"+"+disp;
+                }
+            }
+            document.querySelector(`input#${xchgLeftValue}`).value = xchgMemoryRegister(type,adress,number);
         }
     })
 
