@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const indexBaseAdress = document.querySelector("#indexBaseAdress");
 
     const inputsTab = [axInput, bxInput, cxInput, dxInput, siInput, diInput, bpInput, spInput];
-    const indexTab = ["ax","bx","cx","dx","si","di","bp","sp"];
+    const indexTab = ["ax","bx","cx","dx","si","di","bp","sp","disp"];
     const adressesId = ["si", "di", "bp", "si+bp", "si+bx", "di+bp", "di+bx"];
     const registerId = ["ax", "bx", "cx", "dx"];
     const tmpRigth = ["movRight", "xchgRight"];
@@ -353,7 +353,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 
     resetAllAdresses.addEventListener('click', () => {
-        for (let i = 4; i < 8; i++) {
+        for (let i = 4; i < indexTab.length; i++) {
             document.querySelector(`input#${indexTab[i]}`).value = "";
         }
     })
@@ -362,8 +362,30 @@ window.addEventListener('DOMContentLoaded', () => {
     applyMov.addEventListener('click', () => {
         const movRightValue = movRight.value.toLowerCase();
         const movLeftValue = movLeft.value.toLowerCase();
+        let disp = "";
+        if(document.querySelector("input#disp").value != "")
+        {
+            disp = document.querySelector("input#disp").value;
+        }
 
-        document.querySelector(`input#${movLeftValue}`).value = document.querySelector(`input#${movRightValue}`).value; 
+        if(adressMode == "RR")
+        {
+            document.querySelector(`input#${movLeftValue}`).value = document.querySelector(`input#${movRightValue}`).value; 
+        }else if(adressMode == "RM")
+        {
+            const number = document.querySelector(`input#${movRightValue}`).value.toUpperCase();
+            const type = movLeftValue.toUpperCase();
+            const adress = document.querySelector(`input#${movLeftValue}`).value.toUpperCase()+"+"+disp;
+            saveToMemory(type,adress,number);
+            document.querySelector(`input#${movRightValue}`).value = "";
+            document.querySelector(`input#${movLeftValue}`).value = "";
+            document.querySelector("input#disp").value = "";
+        }else if(adressMode == "MR")
+        {
+            const type = movRightValue.toUpperCase();
+            const adress = document.querySelector(`input#${movRightValue}`).value.toUpperCase()+"+"+disp;
+            document.querySelector(`input#${movLeftValue}`).value = getFromMemory(type,adress);
+        }
     })
 
 
@@ -372,9 +394,18 @@ window.addEventListener('DOMContentLoaded', () => {
         const xchgRightValue = xchgRight.value.toLowerCase();
         const xchgLeftValue = xchgLeft.value.toLowerCase();
 
-        let tmp = document.querySelector(`input#${xchgRightValue}`).value;
-        document.querySelector(`input#${xchgRightValue}`).value = document.querySelector(`input#${xchgLeftValue}`).value;
-        document.querySelector(`input#${xchgLeftValue}`).value = tmp;
+        if(adressMode == "RR")
+        {
+            let tmp = document.querySelector(`input#${xchgRightValue}`).value;
+            document.querySelector(`input#${xchgRightValue}`).value = document.querySelector(`input#${xchgLeftValue}`).value;
+            document.querySelector(`input#${xchgLeftValue}`).value = tmp;
+        }else if(adressMode == "RM" || adressMode == "MR")
+        {
+            const number = document.querySelector(`input#${xchgRightValue}`).value.toUpperCase();
+            const type = xchgLeftValue.toUpperCase();
+            const adress = document.querySelector(`input#${xchgLeftValue}`).value.toUpperCase();
+            document.querySelector(`input#${xchgRightValue}`).value = xchgMemoryRegister(type,adress, number);
+        }
     })
 
     // Register to register select option
@@ -596,5 +627,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 document.querySelector(`#${tmpRigth[i]}`).value = "SI+BP";
             }
         }
-    })  
+    })
+
+
 });
