@@ -1,24 +1,40 @@
 function saveToMemory(type, adress, number)
 {
-    if (localStorage.getItem(`${type}:${adress}`) != null) {
-        localStorage.removeItem(`${type}:${adress}`);  
+    finallAdress = finallAdressCount(adress);
+
+    if (localStorage.getItem(`${type}:${finallAdress}`) != null) {
+        localStorage.removeItem(`${type}:${finallAdress}`);  
     }
-    localStorage.setItem(`${type}:${adress}`, number);
+    localStorage.setItem(`${type}:${finallAdress}`, number);
 }
 
 function getFromMemory(type, adress)
 {
-    if(localStorage.getItem(`${type}:${adress}`) == null)
+    let finallAdress = finallAdressCount(adress);
+    
+    if(localStorage.getItem(`${type}:${finallAdress}`) == null)
     {
         return "";
     }
-    return localStorage.getItem(`${type}:${adress}`);
+    return localStorage.getItem(`${type}:${finallAdress}`);
 }
 
 function xchgMemoryRegister(type,adress,number)
 {
-    const current = localStorage.getItem(`${type}:${adress}`);
-    localStorage.removeItem(`${type}:${adress}`);
-    localStorage.setItem(`${type}:${adress}`, number);
+    let finallAdress = finallAdressCount(adress);
+
+    const current = localStorage.getItem(`${type}:${finallAdress}`);
+    localStorage.removeItem(`${type}:${finallAdress}`);
+    localStorage.setItem(`${type}:${finallAdress}`, number);
     return current;
+}
+
+function finallAdressCount(adress)
+{
+    adressesTab = adress.split("+");
+    let finallAdress = 0;
+    adressesTab.forEach(element => {
+        finallAdress += parseInt(element, 16);
+    });
+    return finallAdress.toString(16).toUpperCase();
 }
