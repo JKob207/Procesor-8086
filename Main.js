@@ -2,6 +2,9 @@ window.addEventListener('DOMContentLoaded', () => {
     // Addressing mode
     let adressMode = "RR";
     
+    // Stack
+    let stack = [];
+
     // Input
     const axInput = document.querySelector("input#ax");
     const bxInput = document.querySelector("input#bx");
@@ -42,6 +45,8 @@ window.addEventListener('DOMContentLoaded', () => {
     //Apply buttons
     const applyMov = document.querySelector("#applyMov");
     const applyXchg = document.querySelector("#applyXchg");
+    const applyPush = document.querySelector("#applyPush");
+    const applyPop = document.querySelector("#applyPop");
     
     // Check if not already selected (Select registers)
     let disabledMovLeft = "AX";
@@ -752,6 +757,29 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
 
                 document.querySelector(`#${tmpRigth[i]}`).value = "SI+BP";
+            }
+        }
+    })
+
+    //Push on stack
+    applyPush.addEventListener('click', () => {
+        let valueRegister = document.querySelector("#pushRight").value;
+        let value = document.querySelector(`#${valueRegister.toLowerCase()}`).value;
+        stack.push(value);
+        document.querySelector("#sp").value = value;
+    })
+
+    //Pop from stack
+    applyPop.addEventListener('click', () => {
+        if(stack.length > 0)
+        {
+            let valueRegister = document.querySelector("#popRight").value;
+            document.querySelector(`#${valueRegister.toLowerCase()}`).value = stack.pop();
+            if(stack.length == 0)
+            {
+                document.querySelector("#sp").value = "";
+            }else {
+                document.querySelector("#sp").value = stack[0];
             }
         }
     })
