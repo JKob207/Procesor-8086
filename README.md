@@ -34,7 +34,7 @@ D. POP operation
 2. Click the `Apply` button.
 3. The value from the SP stack will be transferred to the target register.
 
-A. Memory operations
+E. Memory operations
 1. From the options mode, select the form of data transfer: from register to memory or from memory to register.
 2. You can also choose the way of saving this data: index, base or index-base.
 3. Select the appropriate registers.
